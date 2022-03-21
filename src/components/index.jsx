@@ -140,7 +140,7 @@ class MaterialUiPhoneNumber extends React.Component {
         ? ''
         : this.formatNumber(
             (props.disableCountryCode ? '' : dialCode) + inputNumber.replace(/\D/g, ''),
-            countryGuess.name ? countryGuess.format : undefined,
+            this.getInputMask(countryGuess) || (countryGuess.name ? countryGuess.format : undefined),
           )
 
     this.state = {
@@ -386,7 +386,7 @@ class MaterialUiPhoneNumber extends React.Component {
         freezeSelection = false
       }
       // let us remove all non numerals from the input
-      formattedNumber = this.formatNumber(inputNumber, newSelectedCountry.format)
+      formattedNumber = this.formatNumber(inputNumber, this.getInputMask(newSelectedCountry))
     }
 
     let caretPosition = e.target.selectionStart
@@ -418,6 +418,14 @@ class MaterialUiPhoneNumber extends React.Component {
         }
       },
     )
+  }
+
+  getInputMask = (country) => {
+    const mask = this.props.masks[country.iso2]
+
+    if (mask) return mask
+
+    return country.format
   }
 
   handleRefInput = (ref) => {
@@ -464,7 +472,7 @@ class MaterialUiPhoneNumber extends React.Component {
         ? unformattedNumber.replace(currentSelectedCountry.dialCode, nextSelectedCountry.dialCode)
         : nextSelectedCountry.dialCode
 
-    const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), nextSelectedCountry.format)
+    const newFormattedNumber = this.formatNumber(newNumber.replace(/\D/g, ''), this.getInputMask(nextSelectedCountry))
 
     this.setState(
       {
@@ -641,12 +649,12 @@ class MaterialUiPhoneNumber extends React.Component {
         countryGuess && !startsWith(inputNumber.replace(/\D/g, ''), countryGuess.dialCode) ? countryGuess.dialCode : ''
       formattedNumber = this.formatNumber(
         (disableCountryCode ? '' : dialCode) + inputNumber.replace(/\D/g, ''),
-        countryGuess ? countryGuess.format : undefined,
+        countryGuess ? this.getInputMask(countryGuess) : undefined,
       )
     } else {
       inputNumber = inputNumber.replace(/\D/g, '')
       countryGuess = this.guessSelectedCountry(inputNumber.substring(0, 6), onlyCountries, defaultCountry)
-      formattedNumber = this.formatNumber(inputNumber, countryGuess.format)
+      formattedNumber = this.formatNumber(inputNumber, this.getInputMask(countryGuess))
     }
 
     this.setState({ selectedCountry: countryGuess, formattedNumber })
@@ -842,6 +850,7 @@ MaterialUiPhoneNumber.propTypes = {
   onlyCountries: PropTypes.arrayOf(PropTypes.string),
   preferredCountries: PropTypes.arrayOf(PropTypes.string),
   defaultCountry: PropTypes.string,
+  masks: PropTypes.object,
 
   value: PropTypes.string,
   placeholder: PropTypes.string,
@@ -884,6 +893,7 @@ MaterialUiPhoneNumber.defaultProps = {
   onlyCountries: [],
   preferredCountries: [],
   defaultCountry: '',
+  masks: {},
 
   placeholder: '+1 (702) 123-4567',
   disabled: false,
