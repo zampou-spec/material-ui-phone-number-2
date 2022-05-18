@@ -34,7 +34,8 @@ const IconButtonStyled = styled(IconButton)(({ theme }) => ({
   padding: 0,
   height: 30,
   '& svg': {
-    width: 'fill-available',
+    width: 'auto',
+    height: '1em',
   },
 }))
 
