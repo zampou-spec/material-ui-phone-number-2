@@ -19,6 +19,7 @@ export type MuiPhoneNumberProps = TextFieldProps & {
   onlyCountries?: string[];
   preferredCountries?: string[];
   regions?: [string] | string;
+  masks?: { [countryIso2: string]: string }
 };
 
 declare const MuiPhoneNumber: React.FC<MuiPhoneNumberProps>;
