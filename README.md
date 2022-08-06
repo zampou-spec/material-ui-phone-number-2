@@ -13,13 +13,13 @@ Uses @material-ui/core/TextField for rendering the phone input
 ## Installation
 
 ```shell-script
-npm install material-ui-phone-number-2 --save
+npm install @zampou-spec/material-ui-phone-number-2 --save
 ```
 
 ## Usage
 
 ```jsx
-import MuiPhoneNumber from 'material-ui-phone-number-2'
+import MuiPhoneNumber from '@zampou-spec/material-ui-phone-number-2'
 
 React.render(<MuiPhoneNumber defaultCountry={'us'} onChange={handleOnChange} />, document.getElementById('root'))
 ```
