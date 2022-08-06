@@ -691,7 +691,7 @@ class MaterialUiPhoneNumber extends React.Component {
                     //   root: clsx(classes.nativeRoot, 'native'),
                     //   select: classes.nativeSelect,
                     // }}
-                    onChange={(e) => this.handleFlagItemClick(e.target.value)}
+                    onChange={(e) => {this.handleFlagItemClick(e.target.value); alert(selectedCountry)}}
                     IconComponent={Boolean(FlagComponent) && FlagComponent}
                     disableUnderline
                   >

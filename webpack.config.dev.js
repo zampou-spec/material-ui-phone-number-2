@@ -5,18 +5,12 @@ const common = require('./webpack.config.common');
 module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,PATCH,OPTIONS',
-      'Access-Control-Allow-Headers': 'content-type,authorization,accept',
-    },
-    port: 8181,
-    inline: true,
-    historyApiFallback: true,
-    clientLogLevel: 'none',
-    open: true,
-    contentBase: 'dist',
+    static: './dist',
+
+    compress: true,
+    port: 3010, // default 8000
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({

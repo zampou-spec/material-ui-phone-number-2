@@ -341,7 +341,7 @@ const rawAllCountries = [
     ['africa'],
     'ci',
     '225',
-    '+... .. .. .. ..',
+    '+... .. .. .. .. ..',
   ],
   [
     'Croatia',

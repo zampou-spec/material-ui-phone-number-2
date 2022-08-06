@@ -1,5 +1,5 @@
 {
-  "name": "material-ui-phone-number-2",
+  "name": "@zampou/material-ui-phone-number-2",
   "version": "1.2.7",
   "description": "A material-ui react component to format phone numbers. Based on Material UI Phone Number, which ceased to be maintained.",
   "main": "dist/index.js",
@@ -49,7 +49,7 @@
     "path": "^0.12.7",
     "react-hot-loader": "^4.13.0",
     "style-loader": "^3.3.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.58.1",
     "webpack-bundle-analyzer": "^4.5.0",

@@ -26,6 +26,7 @@ class ChangeDemo extends React.Component {
           defaultCountry="it"
           preferredCountries={['it', 'se']}
           onChange={(e) => {
+            console.log(e);
             this.setState({ number: e });
           }}
         />
@@ -38,10 +39,11 @@ export default render(
   <div style={{ fontFamily: "'Roboto', sans-serif", fontSize: '15px' }}>
     <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
       <p>v1.1.0</p>
-      <p>Exclude countries (usa, canada)</p>
+      <p>Exclude countries (usa, )</p>
       <MaterialUiPhoneNumber
         defaultCountry="no"
         excludeCountries={['us', 'ca']}
+        onChange={(e, d) => console.log(e, d)}
       />
       <p>Only countries</p>
       <MaterialUiPhoneNumber
