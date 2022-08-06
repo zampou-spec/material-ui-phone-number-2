@@ -1,5 +1,5 @@
 {
-  "name": "@zampou/material-ui-phone-number-2",
+  "name": "@zampou-spec/material-ui-phone-number-2",
   "version": "1.2.7",
   "description": "A material-ui react component to format phone numbers. Based on Material UI Phone Number, which ceased to be maintained.",
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/justdvl/material-ui-phone-number-2"
+    "url": "https://github.com/zampou-spec/material-ui-phone-number-2"
   },
   "keywords": [
     "material",
@@ -22,9 +22,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/justdvl/material-ui-phone-number-2/issues"
+    "url": "https://github.com/zampou-spec/material-ui-phone-number-2"
   },
-  "homepage": "https://github.com/justdvl/material-ui-phone-number-2",
+  "homepage": "https://github.com/zampou-spec/material-ui-phone-number-2",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
